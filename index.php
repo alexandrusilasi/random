@@ -13,9 +13,7 @@
   <!-- Material Design Bootstrap -->
   <link rel="stylesheet" href="css/mdb.min.css">
   <!-- Your custom styles (optional) -->
-  <style>
-
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="fixed-sn white-skin">
@@ -101,17 +99,17 @@
 
         <!-- Name -->
         <div class="md-form mt-3">
-            <input type="text" id="nume" class="form-control">
-            <label for="nume">Nume</label>
+            <input type="text" id="nume" class="form-control" required="required">
+            <label for="nume">Nume<sup>*</sup></label>
         </div>
 
         <!-- E-mai -->
         <div class="md-form">
-            <input type="email" id="email" class="form-control">
-            <label for="email">E-mail</label>
+            <input type="email" id="email" class="form-control" required="required">
+            <label for="email">E-mail<sup>*</sup></label>
         </div>
 
-        <!-- E-mai -->
+        <!-- Parola -->
         <div class="md-form">
             <input type="password" id="parola" class="form-control">
             <label for="parola">Parola</label>
@@ -149,7 +147,7 @@
 
   <!-- SCRIPTS -->
   <!-- JQuery -->
-  <script src="js/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
@@ -159,28 +157,28 @@
 
   <!-- Initializations -->
   <script>
-    // SideNav Initialization
-    $(".button-collapse").sideNav();
+   $(document).ready(() => {
+				// SideNav Button Initialization
+				$(".button-collapse").sideNav();
+					// SideNav Scrollbar Initialization
+					var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+					var ps = new PerfectScrollbar(sideNavScrollbar);
 
-    var container = document.querySelector('.custom-scrollbar');
-    var ps = new PerfectScrollbar(container, {
-      wheelSpeed: 2,
-      wheelPropagation: true,
-      minScrollbarLength: 20
+        new WOW().init();
+
+        $("form#profil").on("submit" , function(e){
+          e.preventDefault();
+          $.ajax({
+            url:'./utilizator.php',
+            type: 'post',
+            data: $(this).serialize(),
+            success: function(d)
+            {
+              console.log(d);
+            }
+          });
+        });
     });
-
-    // Data Picker Initialization
-    $('.datepicker').pickadate();
-
-    // Material Select Initialization
-    $(document).ready(function () {
-      $('.mdb-select').material_select();
-    });
-
-    // Tooltips Initialization
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    })
 
   </script>
 
