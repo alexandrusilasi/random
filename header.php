@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+
+$_SESSION['id_utilizator'] = 4;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

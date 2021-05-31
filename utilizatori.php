@@ -45,14 +45,14 @@ require './inc/cont.inc.php';
       <div class="modal-body">
         <form id="mesaj">
           <div class="md-form">
-            <textarea id="form7" class="md-textarea form-control" rows="3"></textarea>
+            <textarea id="form7" name="mesaj" class="md-textarea form-control" rows="3"></textarea>
             <label for="form7">Mesaj</label>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Renunta</button>
-        <button type="button" class="btn btn-primary trimite">Trimite</button>
+        <button type="button" class="btn btn-primary trimite"><i class="far fa-paper-plane"></i> Trimite</button>
       </div>
     </div>
   </div>

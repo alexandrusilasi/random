@@ -44,7 +44,19 @@
           });
         });
         $("button.trimite").on("click" , function(){
-          toastr.info("da");
+          $("form#mesaj").trigger("submit");
+        });
+        $("form#mesaj").on("submit" , function(e){
+          e.preventDefault();
+          $.ajax({
+            url:'./inc/mesaje.inc.php',
+            type: 'post',
+            data: $(this).serialize(),
+            success: function(d)
+            {
+              toastr.info(d);
+            }
+          });
         });
     });
 
