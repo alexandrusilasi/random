@@ -48,6 +48,7 @@ require './inc/cont.inc.php';
             <textarea id="form7" name="mesaj" class="md-textarea form-control" rows="3"></textarea>
             <label for="form7">Mesaj</label>
           </div>
+          <input type="hidden" name="dest" />
         </form>
       </div>
       <div class="modal-footer">

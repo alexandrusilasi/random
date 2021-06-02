@@ -31,6 +31,9 @@
 
         new WOW().init();
 
+        $("button.message").on("click" , function(){
+          $("input[name='dest']").val($(this).attr("id-user"));
+        });
         $("form#profil").on("submit" , function(e){
           e.preventDefault();
           $.ajax({
